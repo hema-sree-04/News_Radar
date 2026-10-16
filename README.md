@@ -1,170 +1,137 @@
 # AI Intelligence Radar 📡
 
 > **Continuous AI-News Intelligence Pipeline & Research Dashboard**  
-> *"Your signal over the noise."*
-
----
+> *Your signal over the noise.*
 
 ## 1. Product Overview
 
-The AI ecosystem moves at blistering speed, but the information space is inundated with repetitive syndication, hype, unverified social media claims, and sensationalist headlines.
+The AI ecosystem evolves rapidly, but the information space is filled with repetitive articles, hype, unverified claims, and sensationalist headlines.
 
-**AI Intelligence Radar** continuously monitors first-party primary sources, high-credibility tech journalism, arXiv preprints, and community feeds. It applies natural language deduplication, multi-source clustering, credibility scoring, hype filtering, and verification analysis to deliver high-density, fact-checked AI intelligence.
+**AI Intelligence Radar** monitors primary sources, technology journalism, arXiv preprints, and community feeds to organize AI news into a research-focused dashboard. It aims to reduce duplication, group related stories, assess source credibility, filter hype, and distinguish verified information from uncertain claims.
 
-### Key Capabilities:
-- **Continuous Ingestion**: Polling 30+ Tier 1–4 RSS & Atom feeds every 15 minutes with timeouts, retries, conditional HTTP (`ETag`/`If-Modified-Since`), and source health telemetry.
-- **Deduplication & Clustering**: Merges 10+ syndicated articles discussing the same event into a single cohesive story cluster, identifying primary sources and supporting articles.
-- **De-Hyping Engine**: Detects sensationalism (e.g. *"THIS AI DESTROYS EVERYTHING"*) and extracts factual claims with objective headline rewriting.
-- **Verification Hierarchy**: Visually classifies every story:
-  - `● VERIFIED`: Direct Tier 1 primary source confirmation (OpenAI, Anthropic, Google, arXiv, etc.).
-  - `● CORROBORATED`: Primary source backed by independent reputable technology journalism.
-  - `● REPORTED`: Reputable secondary reporting pending direct primary release.
-  - `⚡ UNVERIFIED SIGNAL`: Early community signals or preprints marked for watchlists.
-  - `⚠ DISPUTED`: Conflicting claims across reporting sources.
-- **Gemini AI Intelligence Engine**: Synthesizes factual title, one-line summary (≤ 25 words), key points, why it matters, what is verified vs uncertain, and vendor claims vs facts.
-- **100% Offline & Fallback Resilient**: Operates seamlessly without external API keys or network dependencies using built-in deterministic NLP extractors.
-- **Hostinger & Custom SMTP Daily Digest**: Automated 6:45 AM digest compilation and 7:00 AM dispatch (`Asia/Kolkata` timezone configurable) with clean HTML/text formats.
-- **High-Density Research Dashboard**: Clean, minimal, dark-mode terminal aesthetics without distracting animations.
+### Key Features
 
----
+- **Continuous Ingestion:** Collects news from RSS and Atom feeds, with configurable polling, retries, and source health monitoring.
+- **Deduplication & Clustering:** Identifies duplicate articles and groups related coverage into story clusters.
+- **Hype Detection:** Flags sensationalist headlines and helps present news more objectively.
+- **Verification Labels:** Categorizes stories as VERIFIED, CORROBORATED, REPORTED, UNVERIFIED SIGNAL, or DISPUTED, based on available evidence.
+- **AI-Powered Summaries:** Uses Gemini when configured to generate summaries, key points, and explanations of why a story matters.
+- **Fallback Processing:** Provides deterministic fallback processing when the AI provider is unavailable.
+- **Daily Email Digest:** Supports scheduled email briefings through configurable SMTP settings.
+- **Research Dashboard:** Provides a clean, dark-themed interface for exploring AI developments.
 
 ## 2. Source Hierarchy
 
-| Tier | Category | Credibility | Examples |
-| :--- | :--- | :--- | :--- |
-| **Tier 1** | **Primary / First-Party** | 90–100 | OpenAI, Anthropic, Google DeepMind, Meta AI, NVIDIA, Mistral, DeepSeek, Hugging Face, arXiv cs.AI |
-| **Tier 2** | **High-Tech Journalism** | 80–95 | MIT Technology Review, Reuters, Ars Technica, TechCrunch, The Verge, VentureBeat |
-| **Tier 3** | **Technical & Research Analysis** | 75–95 | Ahead of AI (Sebastian Raschka), Import AI (Jack Clark), The Gradient, Last Week in AI |
-| **Tier 4** | **Community / Early Signals** | 10–50 | YouTube Atom feeds, technical discussions (*labeled UNVERIFIED SIGNAL*) |
+| Tier | Category | Examples |
+|---|---|---|
+| Tier 1 | Primary sources | OpenAI, Anthropic, Google DeepMind, NVIDIA, arXiv |
+| Tier 2 | Technology journalism | MIT Technology Review, Reuters, Ars Technica, TechCrunch |
+| Tier 3 | Research and technical analysis | Import AI, The Gradient, Last Week in AI |
+| Tier 4 | Community and early signals | YouTube feeds and technical discussions |
 
----
+Source tiers are used as guidance for evaluating credibility; a source tier alone does not guarantee that an individual claim is true.
 
 ## 3. Technology Stack
 
-- **Backend**: Node.js, Express, TypeScript, better-sqlite3 (WAL mode), rss-parser, nodemailer, node-cron
-- **Frontend**: React 18, Vite, TypeScript, Lucide Icons, Pure Modern CSS Design System
-- **Testing**: Vitest automated test suite
+- **Backend:** Node.js, Express, TypeScript
+- **Database:** SQLite with better-sqlite3
+- **News ingestion:** rss-parser
+- **AI integration:** Google Gemini with fallback processing
+- **Email scheduling:** Nodemailer and node-cron
+- **Frontend:** React 18, Vite, TypeScript, Lucide Icons
+- **Testing:** Vitest
 
----
+## 4. Prerequisites
 
-## 4. Quick Start Guide
-
-### Prerequisites
-- Node.js 18+ (tested on Node v20/v24)
+- Node.js 18 or later
 - npm or pnpm
 
-### Installation
+## 5. Installation
+
+Clone the repository and enter the project directory:
 
 ```bash
-# Clone the repository and navigate to the directory
+git clone https://github.com/hema-sree-04/News_Radar.git
 cd News_Radar
-
-# Install all dependencies
 npm install
 ```
 
-### Environment Configuration
-
-Create a `.env` file in the root directory (or copy from `.env.example`):
+Create your environment configuration using `.env.example`, if available:
 
 ```bash
 cp .env.example .env
 ```
 
-Configure your environment variables:
+Configure the required values in `.env` according to your setup.
+
+### Example Environment Variables
 
 ```env
-# ==========================================
-# AI Provider (Optional: Fallback is active)
-# ==========================================
-GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_MODEL=gemini-1.5-flash
+GEMINI_API_KEY=your_gemini_api_key
+GEMINI_MODEL=your_supported_gemini_model
 AI_PROVIDER=gemini
 
-# ==========================================
-# Server & Scheduling
-# ==========================================
 PORT=3000
 NODE_ENV=development
 TIMEZONE=Asia/Kolkata
 INGESTION_INTERVAL_MINUTES=15
 
-# ==========================================
-# Hostinger / Custom SMTP Email Dispatch
-# ==========================================
 SMTP_HOST=smtp.hostinger.com
 SMTP_PORT=465
 SMTP_SECURE=true
 SMTP_USERNAME=your-email@yourdomain.com
-SMTP_PASSWORD=your_hostinger_smtp_password
+SMTP_PASSWORD=your_smtp_password
 
-EMAIL_FROM="AI Intelligence Radar <radar@yourdomain.com>"
+EMAIL_FROM=radar@yourdomain.com
 EMAIL_TO=recipient@example.com
 ```
 
----
+**Security:** Never commit your actual `.env` file, API keys, SMTP passwords, or other secrets to GitHub.
 
-## 5. Running the Application
+## 6. Running the Application
 
-### Development Mode (Concurrent Server & Frontend)
+Start the development environment:
 
 ```bash
 npm run dev
 ```
-- Frontend UI: `http://localhost:5173`
+
+Depending on your project configuration, the frontend and backend may be available at:
+
+- Frontend: `http://localhost:5173`
 - Backend API: `http://localhost:3000`
 
-### Production Build & Launch
+Build the application:
 
 ```bash
-# Build server and client
 npm run build
+```
 
-# Start production server
+Start the production server:
+
+```bash
 npm start
 ```
-- Full Dashboard: `http://localhost:3000`
 
----
+The production dashboard is expected at `http://localhost:3000` if configured that way.
 
-## 6. Running Automated Tests
+## 7. Running Tests
+
+Run the test suite:
 
 ```bash
 npm test
 ```
 
-Executes 15 comprehensive unit & integration tests covering:
-1. URL canonicalization and fuzzy token title deduplication
-2. Hype detection, clickbait scoring, and headline de-hyping
-3. Source hierarchy, credibility scoring, and verification engine
-4. Deterministic AI fallback summarizer
-5. Daily digest curation and responsive HTML/text email rendering
-
----
-
-## 7. Daily Email Briefing & Testing
-
-The system automatically compiles the digest at **6:45 AM** and dispatches the email at **7:00 AM** every morning in the configured timezone (`Asia/Kolkata`).
-
-### Manual Testing via API or Admin UI:
-- **Admin Diagnostics**: Click the sliders icon (⚙) in the top-right header to test live ingestion, compile a digest, or dispatch a test email.
-- **CLI / cURL Triggers**:
-  ```bash
-  # Force immediate RSS feed sync
-  curl -X POST http://localhost:3000/api/refresh
-
-  # Generate 24-hour daily digest
-  curl -X POST http://localhost:3000/api/test-digest
-
-  # Dispatch immediate test email
-  curl -X POST http://localhost:3000/api/test-email -H "Content-Type: application/json" -d '{"targetEmail":"test@example.com"}'
-  ```
-
----
+The project's tests can help validate news ingestion, URL canonicalization, duplicate detection, hype detection, credibility assessment, fallback summaries, and email digest generation, depending on the implemented test coverage.
 
 ## 8. Adding New Feeds
 
-Add new entries directly to [`server/config/sources.json`](file:///c:/Users/Hema%20Sree/Desktop/News_Radar/server/config/sources.json):
+News sources are configured in:
+
+`server/config/sources.json`
+
+Example entry:
 
 ```json
 {
@@ -175,15 +142,17 @@ Add new entries directly to [`server/config/sources.json`](file:///c:/Users/Hema
   "sourceType": "rss",
   "sourceTier": 1,
   "credibilityScore": 95,
-  "defaultCategory": "Research Breakthrough",
+  "defaultCategory": "Research",
   "enabled": true
 }
 ```
 
-The database updates automatically on next restart or ingestion run without touching main application logic.
-
----
+Use a valid feed URL and follow the configuration schema expected by the application.
 
 ## 9. License
 
-MIT License. Designed and built for high-signal AI intelligence.
+MIT License, if the project is distributed under that license. See the repository's `LICENSE` file for the definitive terms.
+
+---
+
+**AI Intelligence Radar — Your signal over the noise.**
