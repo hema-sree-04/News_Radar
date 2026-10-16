@@ -1,0 +1,55 @@
+{
+  "name": "ai-intelligence-radar",
+  "version": "1.0.0",
+  "description": "Production-grade continuous AI-news intelligence pipeline and research dashboard",
+  "type": "module",
+  "scripts": {
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "vite --config client/vite.config.ts client",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,CLIENT\" -c \"blue.bold,green.bold\" \"npm run dev:server\" \"npm run dev:client\"",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build:client": "vite build --config client/vite.config.ts client",
+    "build": "npm run build:server && npm run build:client",
+    "start": "node dist/server/index.js",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "ai",
+    "news",
+    "radar",
+    "intelligence",
+    "rss",
+    "gemini",
+    "digest"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.0",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.0",
+    "@types/node-cron": "^3.0.11",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "lucide-react": "^0.469.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}

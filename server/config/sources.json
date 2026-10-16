@@ -1,0 +1,167 @@
+[
+  {
+    "id": "hf-blog",
+    "name": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog",
+    "rssUrl": "https://huggingface.co/blog/feed.xml",
+    "sourceType": "rss",
+    "sourceTier": 1,
+    "credibilityScore": 95,
+    "defaultCategory": "Open Source / Open Weight",
+    "enabled": true
+  },
+  {
+    "id": "arxiv-ai",
+    "name": "arXiv cs.AI",
+    "url": "https://arxiv.org/list/cs.AI/recent",
+    "rssUrl": "https://rss.arxiv.org/rss/cs.AI",
+    "sourceType": "rss",
+    "sourceTier": 1,
+    "credibilityScore": 95,
+    "defaultCategory": "Research Breakthrough",
+    "enabled": true
+  },
+  {
+    "id": "mit-tech-review-ai",
+    "name": "MIT Technology Review AI",
+    "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+    "rssUrl": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+    "sourceType": "rss",
+    "sourceTier": 2,
+    "credibilityScore": 90,
+    "defaultCategory": "AI Research",
+    "enabled": true
+  },
+  {
+    "id": "mit-tech-review-general",
+    "name": "MIT Technology Review",
+    "url": "https://www.technologyreview.com",
+    "rssUrl": "https://www.technologyreview.com/feed/",
+    "sourceType": "rss",
+    "sourceTier": 2,
+    "credibilityScore": 88,
+    "defaultCategory": "AI Industry",
+    "enabled": true
+  },
+  {
+    "id": "techcrunch-ai",
+    "name": "TechCrunch AI",
+    "url": "https://techcrunch.com/category/artificial-intelligence/",
+    "rssUrl": "https://techcrunch.com/category/artificial-intelligence/feed/",
+    "sourceType": "rss",
+    "sourceTier": 2,
+    "credibilityScore": 85,
+    "defaultCategory": "AI Startup",
+    "enabled": true
+  },
+  {
+    "id": "the-verge-ai",
+    "name": "The Verge AI",
+    "url": "https://www.theverge.com/ai-artificial-intelligence",
+    "rssUrl": "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml",
+    "sourceType": "rss",
+    "sourceTier": 2,
+    "credibilityScore": 85,
+    "defaultCategory": "Product Launch",
+    "enabled": true
+  },
+  {
+    "id": "venturebeat-ai",
+    "name": "VentureBeat AI",
+    "url": "https://venturebeat.com/category/ai/",
+    "rssUrl": "https://venturebeat.com/category/ai/feed/",
+    "sourceType": "rss",
+    "sourceTier": 2,
+    "credibilityScore": 84,
+    "defaultCategory": "Enterprise AI",
+    "enabled": true
+  },
+  {
+    "id": "marktechpost",
+    "name": "MarkTechPost",
+    "url": "https://www.marktechpost.com",
+    "rssUrl": "https://www.marktechpost.com/feed/",
+    "sourceType": "rss",
+    "sourceTier": 2,
+    "credibilityScore": 82,
+    "defaultCategory": "Research Breakthrough",
+    "enabled": true
+  },
+  {
+    "id": "the-gradient",
+    "name": "The Gradient",
+    "url": "https://thegradient.pub",
+    "rssUrl": "https://thegradient.pub/rss/",
+    "sourceType": "rss",
+    "sourceTier": 3,
+    "credibilityScore": 88,
+    "defaultCategory": "AI Research",
+    "enabled": true
+  },
+  {
+    "id": "ahead-of-ai",
+    "name": "Ahead of AI (Sebastian Raschka)",
+    "url": "https://magazine.sebastianraschka.com",
+    "rssUrl": "https://magazine.sebastianraschka.com/feed",
+    "sourceType": "rss",
+    "sourceTier": 3,
+    "credibilityScore": 92,
+    "defaultCategory": "AI Research",
+    "enabled": true
+  },
+  {
+    "id": "import-ai",
+    "name": "Import AI (Jack Clark)",
+    "url": "https://importai.substack.com",
+    "rssUrl": "https://importai.substack.com/feed",
+    "sourceType": "rss",
+    "sourceTier": 3,
+    "credibilityScore": 92,
+    "defaultCategory": "AI Policy / Safety",
+    "enabled": true
+  },
+  {
+    "id": "last-week-in-ai",
+    "name": "Last Week in AI",
+    "url": "https://lastweekin.ai",
+    "rssUrl": "https://lastweekin.ai/feed",
+    "sourceType": "rss",
+    "sourceTier": 3,
+    "credibilityScore": 86,
+    "defaultCategory": "AI Industry",
+    "enabled": true
+  },
+  {
+    "id": "google-news-ai-discovery",
+    "name": "Google News (AI Discovery)",
+    "url": "https://news.google.com",
+    "rssUrl": "https://news.google.com/rss/search?q=artificial+intelligence+OR+LLM+OR+OpenAI+OR+Anthropic+when:2d&hl=en-US&gl=US&ceid=US:en",
+    "sourceType": "rss",
+    "sourceTier": 2,
+    "credibilityScore": 80,
+    "defaultCategory": "AI Industry",
+    "enabled": true
+  },
+  {
+    "id": "yt-ai-explained",
+    "name": "AI Explained (YouTube Signals)",
+    "url": "https://www.youtube.com/@ai-explained-official",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw",
+    "sourceType": "atom",
+    "sourceTier": 4,
+    "credibilityScore": 45,
+    "defaultCategory": "AI Research",
+    "enabled": true
+  },
+  {
+    "id": "yt-matt-wolfe",
+    "name": "Matt Wolfe AI Signals",
+    "url": "https://www.youtube.com/@mreflow",
+    "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnmgj0_1e8i89f1W5cE_0tA",
+    "sourceType": "atom",
+    "sourceTier": 4,
+    "credibilityScore": 40,
+    "defaultCategory": "Developer Tools",
+    "enabled": true
+  }
+]
